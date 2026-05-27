@@ -1,0 +1,56 @@
+body {
+  background-color: #881c1c;
+}
+
+.navbar,
+.header,
+.footer,
+.card {
+  border: 2px solid #fefefe;
+  border-radius: 5px;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.navbar .nav-link {
+  color: #fefefe;
+}
+
+.navbar .nav-link.active {
+  color: #fefefe;
+  background-color: #881c1c;
+}
+
+.header,
+.footer,
+.card {
+  background-color: #333;
+  color: #fefefe;
+}
+
+.card-title,
+h1,
+h3,
+h5 {
+  font-weight: bold;
+}
+
+p,
+h3,
+h5 {
+  color: #fefefe;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #fefefe;
+  margin: 10px 0;
+}
+
+/* color pallete
+red background: #881c1c ;
+white text: #fefefe ; 
+black of choice: #333 ;
+*/
