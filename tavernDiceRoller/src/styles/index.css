@@ -1,60 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+/* ─── Tokens ─────────────────────────────────────── */
+:root {
+  --parchment: #f2e8d0;
+  --ink: #2a1f0e;
+  --ink-muted: #5a4a30;
+  --crimson: #881c1c;
+  --crimson-dark: #5e1212;
+  --crimson-glow: #b02222;
+  --gold: #a07830;
+  --wood: #1e1208;
+  --wood-light: #2a1a0a;
+  --border: rgba(120, 90, 40, 0.3);
+  --border-gold: rgba(160, 120, 48, 0.5);
+
+  --ff-display: "Cinzel", "Palatino Linotype", serif;
+  --ff-body: "Cormorant Garamond", "Palatino Linotype", serif;
+}
+
+/* ─── Base ────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #881c1c;
+  background-color: var(--wood);
+  font-family: var(--ff-body);
+  color: var(--parchment);
+  margin: 0;
 }
 
-.navbar,
-.header,
-.footer,
-.card {
-  border: 2px solid #fefefe;
-  border-radius: 5px;
-}
-
-.navbar {
-  background-color: #333;
-}
-
-.navbar .nav-link {
-  color: #fefefe;
-}
-
-.navbar .nav-link.active {
-  color: #fefefe;
-  background-color: #881c1c;
-}
-
-
-.header,
-.footer,
-.card {
-  background-color: #333;
-  color: #fefefe;
-}
-
-.card-title,
 h1,
+h2,
 h3,
-h5 {
-  font-weight: bold;
+h4,
+h5,
+h6 {
+  font-family: var(--ff-display);
+  color: var(--gold);
+  letter-spacing: 0.04em;
 }
 
-p,
-h3,
-h5 {
-  color: #fefefe;
+p {
+  color: var(--parchment);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--parchment);
 }
 
 hr {
   border: none;
-  border-top: 1px solid #fefefe;
-  margin: 10px 0;
+  position: relative;
+  height: 16px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+hr::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--border-gold);
+}
+hr::after {
+  content: "◆";
+  position: relative;
+  z-index: 1;
+  font-size: 8px;
+  color: var(--gold);
+  background: var(--wood-light);
+  padding: 0 8px;
 }
 
+/* ─── Navbar ──────────────────────────────────────── */
+.navbar {
+  background-color: var(--wood) !important;
+  border-bottom: 1px solid var(--gold) !important;
+  border-radius: 0 !important;
+}
+
+.navbar-brand {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  color: var(--gold) !important;
+  letter-spacing: 0.05em;
+}
+
+.navbar .nav-link {
+  font-family: var(--ff-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--parchment) !important;
+  transition: color 0.2s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--gold) !important;
+  background: transparent !important;
+}
+
+/* ─── Cards ───────────────────────────────────────── */
+.card {
+  background-color: var(--wood-light) !important;
+  color: var(--parchment) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 3px !important;
+}
+
+.card-title,
+.card h3,
+.card h5 {
+  font-family: var(--ff-display);
+  color: var(--gold) !important;
+  letter-spacing: 0.04em;
+}
+
+.card p {
+  color: var(--parchment) !important;
+}
+.card label {
+  color: var(--parchment) !important;
+}
+
+.card hr::after {
+  background: var(--wood-light);
+}
+
+/* ─── Form Controls (global — login, register, account) ── */
+.form-control {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 2px !important;
+  color: var(--parchment) !important;
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+.form-control::placeholder {
+  color: var(--ink-muted) !important;
+  opacity: 1;
+}
+.form-control:focus {
+  outline: none !important;
+  border-color: var(--gold) !important;
+  box-shadow: none !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.form-label {
+  font-family: var(--ff-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  margin-bottom: 4px;
+}
+
+/* ─── Buttons (global) ────────────────────────────── */
+.btn-danger,
+.btn.btn-danger {
+  font-family: var(--ff-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background-color: var(--crimson) !important;
+  border-color: var(--crimson-dark) !important;
+  color: var(--parchment) !important;
+  border-radius: 2px;
+  transition: background-color 0.2s;
+}
+.btn-danger:hover {
+  background-color: var(--crimson-glow) !important;
+}
+
+.btn-outline-danger {
+  font-family: var(--ff-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-color: var(--crimson) !important;
+  color: var(--crimson-glow) !important;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-outline-danger:hover {
+  background-color: var(--crimson) !important;
+  color: var(--parchment) !important;
+}
+
+.btn-secondary {
+  font-family: var(--ff-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background-color: var(--wood-light) !important;
+  border-color: var(--border-gold) !important;
+  color: var(--parchment) !important;
+  border-radius: 2px;
+}
+.btn-secondary:hover {
+  border-color: var(--gold) !important;
+}
+
+/* ─── Alerts ──────────────────────────────────────── */
+.alert {
+  font-family: var(--ff-body);
+  font-size: 0.9rem;
+  border-radius: 2px;
+}
+
+/* ─── Select (dice roller) ────────────────────────── */
+select {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  color: var(--parchment);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  padding: 3px 6px;
+  margin-top: 6px;
+  width: 100%;
+}
+select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+select option {
+  background: var(--wood-light);
+  color: var(--parchment);
+}
+
+/* ─── Landing ─────────────────────────────────────── */
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.landing-card {
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+  padding: 24px 20px;
+  position: relative;
+  transition: border-color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+.landing-card:hover {
+  border-color: var(--gold);
+}
+
+.landing-card h4 {
+  font-family: var(--ff-display);
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.landing-card p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
+/* ─── Contact / About ─────────────────────────────── */
+.body1 {
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.body1 h3 {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.body1 p {
+  font-size: 1rem;
+  color: var(--parchment);
+  line-height: 1.6;
+}
+
+/* ─── Dice Roller ─────────────────────────────────── */
+.card input[type="number"] {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  color: var(--parchment);
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  padding: 3px 6px;
+  margin-bottom: 6px;
+}
+.card input[type="number"]:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.card button {
+  font-family: var(--ff-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: var(--crimson);
+  border: 1px solid var(--crimson-dark);
+  border-radius: 2px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 6px;
+}
+.card button:hover {
+  background: var(--crimson-glow);
+}
+.card button:active {
+  background: var(--crimson-dark);
+}
+
+#currentResult {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+#diceLog p {
+  font-size: 0.88rem;
+  color: var(--parchment);
+  border-bottom: 1px dotted var(--border-gold);
+  padding: 3px 0;
+  margin: 0;
+}
+
+/* ─── Header / Footer ─────────────────────────────── */
+.header,
+.footer {
+  background-color: var(--wood);
+  color: var(--parchment);
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+}
+
+/* ─── Dice Log page padding ───────────────────────── */
 .diceLog {
   padding-bottom: 80px;
 }
-/* color pallete
-red background: #881c1c ;
-white text: #fefefe ; 
-black of choice: #333 ;
-*/

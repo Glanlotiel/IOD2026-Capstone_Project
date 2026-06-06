@@ -58,8 +58,8 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify(fields),
     });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    setUser({ email: data.email }); // reflect new email immediately
+    if (!res.ok) throw new Error(data.error);
+    setUser({ email: data.user }); // reflect new email immediately
   };
 
   const deleteAccount = async () => {

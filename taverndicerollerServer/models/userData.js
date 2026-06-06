@@ -47,6 +47,9 @@ User.init(
       beforeCreate: async (User) => {
         User.password = await bcrypt.hash(User.password, 12);
       },
+      beforeUpdate: async (User) => {
+        User.dateUpdated = new Date();
+      },
     },
     timestamps: false,
     freezeTableName: true,

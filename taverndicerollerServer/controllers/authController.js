@@ -44,10 +44,22 @@ const authLogin = async (req, res) => {
 };
 
 const authUpdate = async (req, res) => {
+  console.log("authUpdate called");
   try {
-    await Models.User.update(req.body, {
-      where: { id: req.user.id },
-    });
+    const { currentPassword, newPassword, ...otherFields } = req.body;
+    const user = await Models.User.findOne({ where: { id: req.user.id } });
+
+    if (newPassword) {
+      const valid = await bcrypt.compare(currentPassword, user.password);
+      if (!valid)
+        return res.status(401).json({ error: "Current password is incorrect" });
+      user.password = await bcrypt.hash(newPassword, 12);
+    }
+
+    user.set(otherFields);
+    console.log("Saving user:", user.toJSON());
+    await user.save();
+
     const updated = await Models.User.findOne({
       where: { id: req.user.id },
       attributes: { exclude: ["password"] },

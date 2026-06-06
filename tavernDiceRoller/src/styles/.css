@@ -31,9 +31,7 @@
   align-items: start;
 }
 
-.charSheet-col {
-  min-width: 0;
-}
+.charSheet-col { min-width: 0; }
 
 /* ─── Layout Containment ──────────────────────────── */
 .charSheet .row {
@@ -75,9 +73,7 @@
   margin: 0;
 }
 
-.charSheet hr::after {
-  background: var(--parchment);
-}
+.charSheet hr::after { background: var(--parchment); }
 
 /* ─── Header Block ────────────────────────────────── */
 .headerBlock {
@@ -142,27 +138,13 @@
   margin-bottom: 14px;
 }
 
-.skills::before {
-  content: "ABILITIES & SKILLS";
-}
-.proficiencies::before {
-  content: "PROFICIENCIES";
-}
-.combatStats::before {
-  content: "COMBAT";
-}
-.currency::before {
-  content: "COIN";
-}
-.personality::before {
-  content: "CHARACTER";
-}
-.attacks::before {
-  content: "ATTACKS & SPELLCASTING";
-}
-.equipment::before {
-  content: "EQUIPMENT";
-}
+.skills::before        { content: 'ABILITIES & SKILLS'; }
+.proficiencies::before { content: 'PROFICIENCIES'; }
+.combatStats::before   { content: 'COMBAT'; }
+.currency::before      { content: 'COIN'; }
+.personality::before   { content: 'CHARACTER'; }
+.attacks::before       { content: 'ATTACKS & SPELLCASTING'; }
+.equipment::before     { content: 'EQUIPMENT'; }
 
 .skills::before,
 .proficiencies::before,
@@ -171,7 +153,7 @@
 .personality::before,
 .attacks::before,
 .equipment::before {
-  /* position: absolute; */
+  position: absolute;
   top: -8px;
   left: 12px;
   background: var(--parchment);
@@ -190,9 +172,7 @@
   margin-bottom: 8px;
   overflow: hidden;
 }
-.skills > div:last-child {
-  margin-bottom: 0;
-}
+.skills > div:last-child { margin-bottom: 0; }
 
 .skills > div > div:last-child {
   min-width: 0;
@@ -355,9 +335,5 @@
   transition: background 0.2s;
   margin-top: 6px;
 }
-.charSheet button:hover {
-  background: var(--crimson-glow);
-}
-.charSheet button:active {
-  background: var(--crimson-dark);
-}
+.charSheet button:hover  { background: var(--crimson-glow); }
+.charSheet button:active { background: var(--crimson-dark); }
