@@ -29,7 +29,15 @@ const authLogin = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1d" },
     );
-    res.json({ token });
+    res.json({
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+      },
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -66,7 +74,7 @@ const authMe = async (req, res) => {
       attributes: { exclude: ["password"] },
     });
     if (!user) return res.status(404).json({ error: "User Not Found" });
-    res.status(200).json(user);
+    res.status(200).json({ user });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

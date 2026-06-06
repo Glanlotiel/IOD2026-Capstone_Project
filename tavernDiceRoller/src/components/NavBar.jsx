@@ -18,8 +18,13 @@ export default function NavBar() {
       <div className="container-fluid justify-content-center">
         <ul className="navbar-nav flex-row flex-wrap justify-content-center gap-2">
           <li className="nav-item">
-            <NavLink className={navLinkClass} to="/">
-              Home
+            <NavLink className={navLinkClass} to="/dice">
+              Dice Roller
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className={navLinkClass} to="/charactercreator">
+              Character Creator
             </NavLink>
           </li>
           <li className="nav-item">
@@ -36,7 +41,7 @@ export default function NavBar() {
           {user ? (
             <>
               <li className="nav-item">
-                <span className="nav-link">Hey, {user.username}!</span>
+                <span className="nav-link">Hey, {user.firstName}!</span>
               </li>
               <li className="nav-item">
                 <NavLink className={navLinkClass} to="/account">

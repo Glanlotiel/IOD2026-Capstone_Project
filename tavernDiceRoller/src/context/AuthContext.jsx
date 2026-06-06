@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     const data = await res.json();
     if (!res.ok) throw new Error(data.message);
     localStorage.setItem("token", data.token); //store JWT
-    setUser({ email: data.email });
+    setUser(data.user);
   };
 
   const logout = async () => {

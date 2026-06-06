@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "concurrently": "^10.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd TavernDiceRoller && npm run dev\" \"cd TavernDiceRollerServer && npm start\""
+  }
+}

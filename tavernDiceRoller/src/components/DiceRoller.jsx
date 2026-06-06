@@ -33,39 +33,45 @@ export default function DiceRoller() {
 
   return (
     <>
-      <div className="card col-4">
-        <div className="card-body">
-          <h3 className="card-title"> Dice Roller </h3>
-          <hr />
-          <form id="diceRoller" onSubmit={handleSubmit}>
-            <input name="diceNumber" type="number" defaultValue={1} />
-            <select name="diceType" defaultValue="6">
-              <option value="4">d4</option>
-              <option value="6">d6</option>
-              <option value="8">d8</option>
-              <option value="12">d12</option>
-              <option value="20">d20</option>
-              <option value="100">d100</option>
-            </select>
-            <br></br>
-            <button type="submit">Roll</button>
-          </form>
-          <hr />
-          {currentResult && <p id="currentResult">{currentResult}</p>}
-        </div>
-      </div>
-
-      <div className="card col-4">
-        <div className="card-body">
-          <h3 className="card-title"> Dice Log</h3>
-          <hr />
-          <div id="diceLog">
-            {log.map((entry, i) => (
-              <p key={i}>{entry}</p>
-            ))}
+      <div className="row mt-3 mt-md-0">
+        <div className="col-5">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title"> Dice Roller </h3>
+              <hr />
+              <form id="diceRoller" onSubmit={handleSubmit}>
+                <input className="w-100" name="diceNumber" type="number" defaultValue={1}  />
+                <select name="diceType" defaultValue="6">
+                  <option value="4">d4</option>
+                  <option value="6">d6</option>
+                  <option value="8">d8</option>
+                  <option value="12">d12</option>
+                  <option value="20">d20</option>
+                  <option value="100">d100</option>
+                </select>
+                <br></br>
+                <button type="submit">Roll</button>
+              </form>
+              <hr />
+              {currentResult && <p id="currentResult">{currentResult}</p>}
+            </div>
           </div>
-          <hr />
-          <button onClick={() => setLog([])}>Clear Log</button>
+        </div>
+
+        <div className="col-7 diceLog">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title"> Dice Log</h3>
+              <hr />
+              <div id="diceLog">
+                {log.map((entry, i) => (
+                  <p key={i}>{entry}</p>
+                ))}
+              </div>
+              <hr />
+              <button onClick={() => setLog([])}>Clear Log</button>
+            </div>
+          </div>
         </div>
       </div>
     </>

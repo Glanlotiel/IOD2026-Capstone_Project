@@ -23,6 +23,7 @@ body {
   background-color: #881c1c;
 }
 
+
 .header,
 .footer,
 .card {
@@ -49,6 +50,9 @@ hr {
   margin: 10px 0;
 }
 
+.diceLog {
+  padding-bottom: 80px;
+}
 /* color pallete
 red background: #881c1c ;
 white text: #fefefe ; 

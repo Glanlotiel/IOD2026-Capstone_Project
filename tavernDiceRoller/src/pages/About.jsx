@@ -8,7 +8,9 @@ export default function About() {
           <article className="col-md-6 body1">
             <h3>Data Collection</h3>
             <p>
-             email address, local storage in webtoken
+             email address, local storage in webtoken.
+             used to store dice rolls and character sheets. 
+             Data is not sold.  
             </p>
             <hr />
           </article>

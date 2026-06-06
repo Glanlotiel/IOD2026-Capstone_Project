@@ -1,11 +1,16 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
-import NavBar from "./components/NavBar.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import { NavBar } from "./components";
+import {
+  Dice,
+  About,
+  Contact,
+  CharCreatorPage,
+  Login,
+  Register,
+  Account,
+  Landing,
+} from "./pages";
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -13,29 +18,42 @@ function ProtectedRoute({ children }) {
   if (!user) return <Navigate to="/login" />;
   return children;
 }
-import "./App.css";
-import Account from "./pages/Account";
+import "./styles/App.css";
 
 function App() {
   return (
     <>
-      <header className="header text-center">
-        <h1> The Oxwaethan Roller </h1>
-      </header>
-
       <BrowserRouter>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <header className="header text-center">
+            <h1> The Oxwaethan Roller </h1>
+          </header>
+        </Link>
         <NavBar></NavBar>
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About></About>}></Route>
-          <Route path="/contact" element={<Contact></Contact>}></Route>
+          <Route path="/" element={<Landing />}></Route>
+          <Route path="/dice" element={<Dice />}></Route>
+          <Route
+            path="/charactercreator"
+            element={<CharCreatorPage></CharCreatorPage>}
+          ></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route
+            path="/account"
+            element={
+              <ProtectedRoute>
+                <Account />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
 
-      <footer className="footer text-center m-2">
-        <p> Made by Thomas C. Long with React and Bootstrap </p>
+      <footer className="footer text-center m-2 fixed-bottom">
+        <p> Made by Thomas C. Long with React and Bootstrap 2026</p>
       </footer>
     </>
   );
