@@ -66,7 +66,7 @@ export default function Account() {
       <h2 className="mb-4" style={{ color: "#881c1c" }}>
         Account Settings
       </h2>
-      <p className="text-muted mb-4">
+      <p className=" mb-4">
         Logged in as <strong>{user?.firstName}</strong>
       </p>
 
