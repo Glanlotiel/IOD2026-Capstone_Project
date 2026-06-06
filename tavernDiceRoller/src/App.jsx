@@ -26,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <header className="header text-center">
-            <h1> The Oxwaethan Roller </h1>
+            <h1> The Tavern Dice Roller</h1>
           </header>
         </Link>
         <NavBar></NavBar>
